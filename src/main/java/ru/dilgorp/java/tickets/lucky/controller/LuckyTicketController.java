@@ -49,7 +49,7 @@ public class LuckyTicketController {
     }
 
     /**
-     * @return набор счастливых билетов
+     * @return набор счастливых билетов из 6 цифр
      */
     @GetMapping("/six/even")
     public TicketListView getSixLengthEvenTickets() {
@@ -57,7 +57,7 @@ public class LuckyTicketController {
     }
 
     /**
-     * @return набор счастливых билетов
+     * @return набор четных счастливых билетов из 4 цифр
      */
     @GetMapping("/four/even")
     public TicketListView getFourLengthEvenTickets() {
@@ -65,7 +65,7 @@ public class LuckyTicketController {
     }
 
     /**
-     * @return набор счастливых билетов
+     * @return набор счастливых билетов, делящихся на 5, из 4 цифр
      */
     @GetMapping("/four/by5")
     public TicketListView getFourLengthDivBy5Tickets() {
@@ -73,7 +73,7 @@ public class LuckyTicketController {
     }
 
     /**
-     * @return набор счастливых билетов
+     * @return набор счастливых билетов, делящихся на 3, из 4 цифр
      */
     @GetMapping("/four/by3")
     public TicketListView getFourLengthDivBy3Tickets() {
