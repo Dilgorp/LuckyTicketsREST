@@ -7,4 +7,10 @@ public interface Filter {
      * @return true, если номер удовлетворяет условию
      */
     boolean doFilter(int n);
+
+    /**
+     * Возвращает тип фильтра
+     * @return тип фильтра
+     */
+    FilterType getFilterType();
 }
