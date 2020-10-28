@@ -1,13 +1,16 @@
 package ru.dilgorp.java.tickets.lucky.ticket;
 
+import lombok.EqualsAndHashCode;
+
 import java.util.Arrays;
-import java.util.Objects;
 import java.util.stream.IntStream;
 
+@EqualsAndHashCode
 public class AbstractTicket implements Lucky {
 
     private final int numberLength;
     private final int[] digits;
+    private final int number;
 
     public AbstractTicket(int numberLength, int number) {
         if(number < 0){
@@ -20,6 +23,7 @@ public class AbstractTicket implements Lucky {
 
         this.numberLength = numberLength;
         this.digits = getDigits(number);
+        this.number = number;
     }
 
     @Override
@@ -29,6 +33,11 @@ public class AbstractTicket implements Lucky {
 
         return Arrays.stream(digits, 0, middle).sum() ==
                 Arrays.stream(digits, middle, digits.length).sum();
+    }
+
+    @Override
+    public int getNumber() {
+        return number;
     }
 
     private int[] getDigits(int number) {
@@ -55,21 +64,5 @@ public class AbstractTicket implements Lucky {
             builder.append(digit);
         }
         return builder.toString();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        AbstractTicket that = (AbstractTicket) o;
-        return numberLength == that.numberLength &&
-                Arrays.equals(digits, that.digits);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = Objects.hash(numberLength);
-        result = 31 * result + Arrays.hashCode(digits);
-        return result;
     }
 }

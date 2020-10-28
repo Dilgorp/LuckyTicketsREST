@@ -1,5 +1,5 @@
 package ru.dilgorp.java.tickets.lucky.ticket;
 
-public interface Lucky{
+public interface Lucky extends NumberTicket{
     boolean isLucky();
 }
